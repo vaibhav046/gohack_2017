@@ -1,0 +1,122 @@
+{% load staticfiles %}
+
+<html ng-app="monpoModule">
+
+    <head>
+        <link href ="../../static/moneypool/css/bootstrap.min.css" rel = "stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+        <script src="../../static/moneypool/jquery-3.1.1.min.js"></script>
+		<script src="../../static/moneypool/angular.min.js"></script>
+        <script src="../../static/moneypool/myFile.js"></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+        <script src="../../static/moneypool/bootstrap.min.js"></script>
+		<script>
+		window.onload=function(){
+		var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+			  type: 'line',
+			  data: {
+				labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug','Sep','Oct','Nov','Dec'],
+				datasets: [{
+				  label: 'Family1',
+				  data: [12, 19, 3, 17, 6, 3, 7,500,40,23,44,34],
+				  backgroundColor: "rgba(153,255,51,0.6)",
+				  yLabels:' bcsnmsc'
+				}, {
+				  label: 'Family2',
+				  data: [2, 29, 5, 5, 2, 3, 107,500,40,23,44,34],
+				  backgroundColor: "rgba(255,153,0,0.6)",
+				  xLabels:'adsadad'
+				}]
+			  },
+			     
+			});
+		}
+		</script>
+
+
+
+
+    </head>
+     {% verbatim %}
+    <body ng-controller="myCtrl">
+    <div class="row">
+       <div class="col col-md-5 center-block" ng-show="!show">
+        <table class=" table table-hover">
+            <thead>
+                <tr>
+                    <td>Group ID</td>
+                    <td>Balance</td>
+                </tr>
+            </thead>
+            <tbody ng-repeat="masterprofiles in data">
+                <tr>
+                    <td><a href="" ng-click="showDiv(masterprofiles.group_id)">{{masterprofiles.group_id}}</a></td>
+                    <td>{{masterprofiles.balance}}</td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+
+        <div class="row mx-auto"  ng-hide="!show">
+            <table class="table table-hover " style="width:40%; margin-left:5%;"ng-init="getById('9886165900')">
+            <thead>
+                <tr>
+                    <td>phone_number</td>
+                    <td>group_id</td>
+                    <td>name</td>
+                    <td>relationship</td>
+                    <td>age</td>
+                    <td>mail_id</td>
+                    <td>address_1</td>
+                    <td>address_2</td>
+                    <td>pincode</td>
+                    <td>custom_filter</td>
+                    <td>customer_type</td>
+                    <td>vendor_type</td>
+                    <td>card_number</td>
+                    <td>expiry</td>
+                    <td>name_on_card</td>
+
+                </tr>
+            </thead>
+             <tbody ng-repeat="profiles in existing_profiles">
+                <tr>
+
+                <td>{{profiles.phone_number}}</td>
+                <td>{{profiles.group_id}}</td>
+                <td>{{profiles.name}}</td>
+                <td>{{profiles.relationship}}</td>
+                <td>{{profiles.age}}</td>
+                <td>{{profiles.mail_id}}</td>
+                <td>{{profiles.address_1}}</td>
+                <td>{{profiles.address_2}}</td>
+                <td>{{profiles.pincode}}</td>
+                <td>{{profiles.custom_filter}}</td>
+                <td>{{profiles.customer_type}}</td>
+                <td>{{profiles.vendor_type}}</td>
+                <td>{{profiles.card_number}}</td>
+                <td>{{profiles.expiry}}</td>
+                <td>{{profiles.name_on_card}}</td>
+
+
+                </tr>
+                <tr>
+                    <td><a href=""  ng-click="hideDiv(profiles.group_id)">Back</a></td>
+             </tr>
+             </tbody>
+            </table>
+			<div class="container">
+			  <h2>Expenditure behaviour (Expenditure(INR) vs Months(2016))</h2>
+			  <div>
+				<canvas id="myChart"></canvas>
+			  </div>
+					</div>
+				</div>
+	
+</div>
+    </body>
+
+    {% endverbatim %}
+
+</html>

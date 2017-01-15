@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<html ng-app="monpoModule">
+
+    <head>
+
+
+        <script src="../../static/moneypool/angular.min.js"></script>
+
+        <script src="../../static/moneypool/myFile.js"></script>
+
+
+
+    </head>
+     {% verbatim %}
+    <body ng-controller="thisCtrl" ng-init="getById('9886165900')">
+    <table ng-repeat="profiles in existing_profiles">
+        <tr>
+            <td>{{profiles.phone_number}}</td>
+            <td>{{profiles.group_id}}</td>
+            <td>{{profiles.name}}</td>
+            <td>{{profiles.relationship}}</td>
+            <td>{{profiles.age}}</td>
+            <td>{{profiles.mail_id}}</td>
+            <td>{{profiles.address_1}}</td>
+            <td>{{profiles.address_2}}</td>
+            <td>{{profiles.pincode}}</td>
+            <td>{{profiles.custom_filter}}</td>
+            <td>{{profiles.customer_type}}</td>
+            <td>{{profiles.vendor_type}}</td>
+            <td>{{profiles.card_number}}</td>
+            <td>{{profiles.expiry}}</td>
+            <td>{{profiles.name_on_card}}</td>
+
+
+        </tr>
+    </table>
+
+    </body>
+    {% endverbatim %}
+
+</html>
